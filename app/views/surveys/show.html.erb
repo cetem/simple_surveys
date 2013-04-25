@@ -1,0 +1,51 @@
+<div class="readonly-data">
+  <p>
+    <strong><%= Survey.human_attribute_name 'firstname' %></strong>:
+    <%= @survey.firstname %>
+  </p>
+  <p>
+    <strong><%= Survey.human_attribute_name 'lastname' %></strong>:
+    <%= @survey.lastname %>
+  </p>
+  <p>
+    <strong><%= Survey.human_attribute_name 'identification' %></strong>:
+    <%= @survey.identification %>
+  </p>
+  <p>
+    <strong><%= Survey.human_attribute_name 'phone' %></strong>:
+    <%= @survey.phone %>
+  </p>
+  <p>
+    <strong><%= Survey.human_attribute_name 'institution' %></strong>:
+    <%= @survey.institution %>
+  </p>
+  <p>
+    <strong><%= Survey.human_attribute_name 'status_in_institution' %></strong>:
+    <%= @survey.status_in_institution %>
+  </p>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= TravelLine.human_attribute_name 'travel_from' %></th>
+        <th><%= TravelLine.human_attribute_name('travel_to').gsub('=>', '') %></th>
+        <th><%= raw TravelLine.human_attribute_name('rise_time') %></th>
+        <th><%= TravelLine.human_attribute_name 'travel_days' %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @survey.travel_lines.each do |tl| %>
+        <tr>
+          <td><%= show_station_by_key(tl.travel_from) %></td>
+          <td><%= show_station_by_key(tl.travel_to) %></td>
+          <td><%= tl.rise_time %></td>
+          <td><%= show_travel_days(tl.travel_days) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="form-actions">
+  <%= link_to t('label.list'), surveys_path %>
+</div>

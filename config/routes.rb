@@ -1,4 +1,6 @@
 SimpleSurveys::Application.routes.draw do
+  resources :surveys, only: [:index, :show, :new, :create]
+
   devise_for :users
   
   resources :users do
@@ -8,5 +10,5 @@ SimpleSurveys::Application.routes.draw do
     end
   end
   
-  root to: redirect('/users/sign_in')
+  root to: 'surveys#new'
 end

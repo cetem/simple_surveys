@@ -7,11 +7,27 @@
     
   activerecord:
     models:
+      survey:
+        one: 'Encuesta'
+        other: 'Encuestas'
       user:
         one: 'Usuario'
         other: 'Usuarios'
       
     attributes:
+      survey:
+        firstname: 'Nombre'
+        lastname: 'Apellido'
+        identification: 'DNI'
+        phone: 'Teléfono/Celular'
+        email: 'Email'
+        institution: 'Institución'
+        status_in_institution: 'Estado en la institución (docente/estudiante/etc)'
+      travel_line:
+        travel_from: 'Desde'
+        travel_to: 'Hasta =>'
+        rise_time: 'Hora en la que lo espera'
+        travel_days: 'Días que viaja'
       user:
         name: 'Nombre'
         lastname: 'Apellido'
@@ -38,6 +54,7 @@
     new: 'Nuevo'
     search: 'Buscar'
     show: 'Ver'
+    clean: 'Limpiar'
     
   menu:
     actions:
@@ -54,6 +71,20 @@
       empty_search:
         title:
           html: 'La búsqueda de <span class="label label-inverse">%{search}</span> no obtuvo ningún resultado.'
+    surveys:
+      index_title: 'Listado de encuestas'
+      show_title: 'Detalle de encuesta'
+      new_title: 'Nueva Encuesta'
+      correctly_created: 'Encuesta cargada correctamente. Muchas Gracias!'
+      empty_index:
+        html: 'No se ha creado ninguna encuesta hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nueva encuesta</span>'
+      new: 'Nueva encuesta'
+      personal_info: 'Información personal del encuestado'
+      hi!: 'Hola!'
+      travel_info: 'Información de viaje en MetroTrenvía'
+      add_travel_line: 'Agregar Otro Viaje'
+      wait_time: 'Hora en la que te lo esperas tomar &nbsp; &nbsp; &nbsp; '
+      save: 'Guardar Encuesta'
     users:
       index_title: 'Listado de usuarios'
       show_title: 'Detalle de usuario'

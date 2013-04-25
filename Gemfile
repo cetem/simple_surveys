@@ -23,8 +23,7 @@ group :assets do
 end
 
 group :development do
-  gem 'unicorn'
-  gem 'unicorn-rails'
+  gem 'thin'
 end
 
 group :test do

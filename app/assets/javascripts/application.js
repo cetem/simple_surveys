@@ -15,6 +15,8 @@
 //= require jquery_ujs
 //= require jquery/jquery.ui.datepicker-es
 //= require twitter/bootstrap
+//= require dynamic_form
+//= require effect_helper
 //= require inspector
 //= require turboevents
 //= require turbolinks
@@ -23,3 +25,4 @@
 //= require endless_pagination
 //= require mobile
 //= require users
+//= require surveys

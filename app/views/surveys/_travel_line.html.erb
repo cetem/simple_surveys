@@ -1,0 +1,30 @@
+<fieldset>
+  <div class='row-fluid travel-item'>
+    <div class="span1">
+      <%= f.label :travel_from %>
+    </div>
+    <div class='span4'>
+      <%= select_stations_for_travel_line(f, :travel_from) %>
+    </div>
+    <div class="span1">
+      <%= f.label :travel_to %>
+    </div>
+    <div class='span5'>
+      <%= select_stations_for_travel_line(f, :travel_to) %>
+    </div>
+  </div>
+  <div class='row-fluid'>
+    <div class='span6 form-horizontal'>
+      <%= select_rise_time_with_interval(f) %>
+    </div>
+    <div class='span5'>
+      <%= f.label :travel_days %>
+      <%= checkboxes_for_travel_days_in_survey(f)  %>
+    </div>
+    <div class="span1">
+      <%= link_to_remove_nested_item(f) %>
+    </div>
+  </div>
+</fieldset>
+
+<div class='page-header'></div>

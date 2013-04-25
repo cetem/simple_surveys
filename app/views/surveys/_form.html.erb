@@ -1,0 +1,52 @@
+<%= simple_form_for @survey, defaults: { input_html: { class: 'span10' } } do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="well">
+      <h2 class="text-center"><%= t('view.surveys.personal_info') %></h2>
+      <h5 class="text-center"><%= t('view.surveys.hi!') %></h5>
+    </div>
+    <div class='row-fluid'>
+      <div class='span6'>
+        <%= f.input :firstname %>
+      </div>
+      <div class='span6'>
+        <%= f.input :lastname %>
+      </div>
+    </div>
+    <div class='row-fluid'>
+      <div class='span3'>
+        <%= f.input :identification %>
+      </div>
+      <div class='span3'>
+        <%= f.input :phone %>
+      </div>
+      <div class='span5'>
+        <%= f.input :email, input_html: { class: 'span12' } %>
+      </div>
+    </div>
+    <div class='row-fluid'>
+      <div class='span6'>
+        <%= f.input :institution %>
+      </div>
+      <div class='span6'>
+        <%= f.input :status_in_institution %>
+      </div>
+    </div>
+    <div class="breadcrumb text-center">
+      <h5><%= t('view.surveys.travel_info') %></h5>
+    </div>
+    <div id="travel-items">
+      <%= f.simple_fields_for :travel_lines do |tl| %>
+        <%= render partial: 'travel_line', locals: { f: tl } %>
+      <% end %>
+
+      <%= link_to_add_fields t('view.surveys.add_travel_line'), f, :travel_lines %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <div class="pull-right"><%= yield :form_actions %></div>
+    <%= f.button :submit, t('view.surveys.save'), class: 'btn-primary' %>
+  </div>
+<% end %>

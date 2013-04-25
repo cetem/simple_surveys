@@ -1,0 +1,38 @@
+<% if @surveys.empty? %>
+  <%= render 'shared/empty_index' %>
+<% else %>
+  <div class="row">
+    <div class="span12">
+      <table class="table resource-list">
+        <thead>
+          <tr>
+            <th><%= Survey.human_attribute_name 'firstname' %></th>
+            <th><%= Survey.human_attribute_name 'lastname' %></th>
+            <th><%= Survey.human_attribute_name 'identification' %></th>
+            <th><%= Survey.human_attribute_name 'institution' %></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @surveys.each do |survey| %>
+            <tr>
+              <td><%= survey.firstname %></td>
+              <td><%= survey.lastname %></td>
+              <td><%= link_to survey.identification, survey %></td>
+              <td><%= survey.institution %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <%= pagination_links(@surveys) %>
+<% end %>
+
+<div class="form-actions">
+  <%= link_to(
+    t('view.surveys.new', default: :'label.new'),
+    new_survey_path, class: 'btn btn-primary'
+  ) if can? :create, Survey %>
+</div>

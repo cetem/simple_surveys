@@ -11,7 +11,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120306131941) do
+ActiveRecord::Schema.define(:version => 20130425020951) do
+
+  create_table "surveys", :force => true do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "identification"
+    t.string   "phone"
+    t.string   "institution"
+    t.string   "status_in_institution"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.string   "email"
+  end
+
+  add_index "surveys", ["lastname", "identification"], :name => "index_surveys_on_lastname_and_identification", :unique => true
+
+  create_table "travel_lines", :force => true do |t|
+    t.integer  "travel_from",              :null => false
+    t.integer  "travel_to",                :null => false
+    t.string   "rise_time",   :limit => 5, :null => false
+    t.string   "travel_days", :limit => 9, :null => false
+    t.integer  "survey_id",                :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  add_index "travel_lines", ["survey_id"], :name => "index_travel_lines_on_survey_id"
 
   create_table "users", :force => true do |t|
     t.string   "name",                                   :null => false
