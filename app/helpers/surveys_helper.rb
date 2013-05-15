@@ -7,8 +7,8 @@ module SurveysHelper
       collection << [i+1, d]
     end
     
-    form.collection_check_boxes :travel_days, collection, :first, :last, 
-      item_wrapper_class: 'inline checkbox'
+    form.collection_check_boxes :line_days, collection, :first, :last, 
+      item_wrapper_class: 'inline checkbox', checked: form.object.try(:line_days)
   end
 
   def select_stations_for_travel_line(form, field)

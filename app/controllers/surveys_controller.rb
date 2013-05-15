@@ -45,7 +45,7 @@ class SurveysController < ApplicationController
 
     respond_to do |format|
       if @survey.save
-        format.html { redirect_to :back, notice: t('view.surveys.correctly_created') }
+        format.html { redirect_to root_url, notice: t('view.surveys.correctly_created') }
         format.json { render json: @survey, status: :created, location: @survey }
       else
         format.html { render action: 'new' }

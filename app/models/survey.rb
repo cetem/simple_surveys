@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Survey < ActiveRecord::Base
   has_paper_trail
 
@@ -26,22 +28,42 @@ class Survey < ActiveRecord::Base
 
   validates :firstname, :lastname, :identification, :email, presence: true
   validates :identification, uniqueness: { scope: :lastname }
+  validate :must_have_one_item
+  validate :must_have_day_and_time_if_select_a_travel
 
-  before_save :assign_days_values
+  #before_save :assign_days_values
 
   accepts_nested_attributes_for :travel_lines, allow_destroy: true,
     reject_if: ->(attrs) { attrs['travel_to'].blank? && attrs['travel_from'].blank? }
 
   def initialize(attributes = nil, options = {})
     super(attributes, options)
-
   end
 
-  def assign_days_values
-    self.travel_lines.each do |tl|
-      if tl.travel_days.try(:any?)
-        tl.travel_days = tl.travel_days.compact.delete_if { |d| d.blank? }.join('|')
-      end
-    end
+  #def assign_days_values
+  #  self.travel_lines.reject(&:marked_for_destruction?).each do |tl|
+  #    if tl.travel_days
+  #      tl.travel_days = tl.travel_days.compact.delete_if { |d| d.blank? }.join('|')
+  #    end
+  #  end
+  #end
+
+  def must_have_one_item
+    #if self.travel_lines.reject(&:marked_for_destruction?).size < 1
+    #  self.errors.add :base, :must_have_one_item
+    #end
+  end
+
+  def must_have_day_and_time_if_select_a_travel
+    #self.travel_lines.reject(&:marked_for_destruction?).each do |tl|
+
+    #  if tl.travel_from && tl.travel_to
+    #    tl.errors.add :rise_time, :blank if tl.rise_time.blank?
+
+    #    unless tl.travel_days
+    #      tl.errors.add :travel_days, :blank 
+    #    end
+    #  end
+    #end
   end
 end

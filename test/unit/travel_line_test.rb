@@ -16,25 +16,16 @@ class TravelLineTest < ActiveSupport::TestCase
   test 'update' do
     assert_difference 'Version.count' do
       assert_no_difference 'TravelLine.count' do
-        assert @travel_line.update_attributes(travel_days: '1|2')
+        assert @travel_line.update_attributes(line_days: ['1', '3'])
       end
     end
 
-    assert_equal '1|2', @travel_line.reload.travel_days
+    assert_equal '1|3', @travel_line.reload.travel_days
   end
     
   test 'destroy' do 
     assert_difference 'Version.count' do
       assert_difference('TravelLine.count', -1) { @travel_line.destroy }
     end
-  end
-    
-  test 'validates blank attributes' do
-    @travel_line.travel_days = ''
-    
-    assert @travel_line.invalid?
-    assert_equal 1, @travel_line.errors.size
-    assert_equal [error_message_from_model(@travel_line, :travel_days, :blank)],
-      @travel_line.errors[:travel_days]
   end
 end

@@ -27,9 +27,11 @@
   <%= render 'shared/alert' if flash.alert %>
 
   <footer>
-    <div class='alert'>
-      <%= t('messages.created_with_footer.html') %>
-    </div>
+    <% unless controller_name == 'passwords' || controller_name == 'sessions' %>
+      <div class='alert'>
+        <%= t('messages.created_with_footer.html') %>
+      </div>
+    <% end %>
   </footer>
 </body>
 </html>
