@@ -6,6 +6,12 @@
     updated_at: 'Actualización'
     
   activerecord:
+    errors:
+      models:
+        survey:
+          attributes:
+            base:
+              must_have_one_item: 'Debe tener al menos un item'
     models:
       survey:
         one: 'Encuesta'
@@ -63,6 +69,8 @@
     
   messages:
     confirmation: '¿Está seguro?'
+    created_with_footer: 
+      html: '<a href="https://github.com/cetem/simple_surveys">SimpleSurveys</a> desarrollado con SoftwareLibre.'
     
   view:
     generic:

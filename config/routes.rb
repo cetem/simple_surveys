@@ -1,4 +1,5 @@
 SimpleSurveys::Application.routes.draw do
+  get 'surveys/info', 'surveys#info', as: 'surveys_info'
   resources :surveys, only: [:index, :show, :new, :create]
 
   devise_for :users
@@ -10,5 +11,5 @@ SimpleSurveys::Application.routes.draw do
     end
   end
   
-  root to: 'surveys#new'
+  root to: 'surveys#info'
 end

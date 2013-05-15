@@ -1,0 +1,27 @@
+<div class='row-fluid'>
+  <div class="span4 pull-left">
+    <%= image_tag asset_path('cetem.png') %>
+  </div>
+  <div class="span4">
+    <%= image_tag asset_path('tranvia.png') %>
+  </div>
+  <div class="span4 pull-right">
+    <%= image_tag asset_path('utn-dri.png') %>
+  </div>
+</div>
+
+<div class='readonly-data'>
+ <h1 class='text-center'>MetroTranvia de Mendoza</h1>
+  <div class="well">
+    <h2 class='text-center'>La Universidad Tecnológica Nacional - Facultad Regional Mendoza, en conjunto con el Centro de Estudiantes Tecnológicos "Enrique Mosconi"</h2> 
+    <h4>Convoca a todas las instituciones de Capital, ubicadas en las inmediaciones del recorrido del Metrotranvía, a participar de esta encuesta.</h4>
+
+    <h4>El objetivo de la misma es realizar un relevamiento sobre las necesidades horarias de las personas que utilizan el servicio, a fin de solicitar a la Secretaría de Vías y Medios de Transporte de la Provincia de Mendoza la extensión del servicio del Metrotranvía en el horario nocturno.</h4>
+
+    <h4>Solicitamos su difusión interna.</h4>
+  </div>
+</div>
+
+<div class='form-actions text-center'>
+  <%= link_to '<strong>Completar la Encuesta</strong>'.html_safe , new_survey_path, class: 'btn btn-primary btn-large' %>
+</div>

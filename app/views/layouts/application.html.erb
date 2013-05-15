@@ -25,5 +25,11 @@
   
   <%= render 'shared/notice' if flash.notice %>
   <%= render 'shared/alert' if flash.alert %>
+
+  <footer>
+    <div class='alert'>
+      <%= t('messages.created_with_footer.html') %>
+    </div>
+  </footer>
 </body>
 </html>
