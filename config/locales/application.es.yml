@@ -65,6 +65,7 @@
   menu:
     actions:
       logout: 'Salir de la aplicación'
+    surveys: 'Encuestas'
     users: 'Usuarios'
     
   messages:
@@ -111,3 +112,4 @@
       roles:
         admin: 'Administrador'
         regular: 'Normal'
+      new_session: 'Ingresar'
