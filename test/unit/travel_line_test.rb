@@ -16,11 +16,11 @@ class TravelLineTest < ActiveSupport::TestCase
   test 'update' do
     assert_difference 'Version.count' do
       assert_no_difference 'TravelLine.count' do
-        assert @travel_line.update_attributes(line_days: ['1', '3'])
+        assert @travel_line.update_attributes(travel_days: 'Monday')
       end
     end
 
-    assert_equal '1|3', @travel_line.reload.travel_days
+    assert_equal 'Monday', @travel_line.reload.travel_days
   end
     
   test 'destroy' do 

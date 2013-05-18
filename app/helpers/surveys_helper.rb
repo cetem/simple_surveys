@@ -1,16 +1,5 @@
 module SurveysHelper
 
-  def checkboxes_for_travel_days_in_survey(form)
-    collection = []
-
-    t('date.day_names')[1..5].each_with_index do |d, i|
-      collection << [i+1, d]
-    end
-    
-    form.collection_check_boxes :line_days, collection, :first, :last, 
-      item_wrapper_class: 'inline checkbox', checked: form.object.try(:line_days)
-  end
-
   def select_stations_for_travel_line(form, field)
     collection = Survey::STATIONS.map { |k, v| [v, k] }
 
@@ -39,11 +28,19 @@ module SurveysHelper
     Survey::STATIONS[key]
   end
 
-  def show_travel_days(days)
-    numbers = days.split('|').map(&:to_i)
+  def return_id_for_travel_line(tl, i, worked_days)
+    @used_days ||= []
 
-    related_names = numbers.map { |n| t('date.day_names')[n] }
+    id = if tl.object.try(:travel_days)
+      tl.object.travel_days
+    else
+      (
+        t('date.day_names') + [worked_days]- @used_days.map(&:downcase)
+      ).first.camelize
+    end
 
-    related_names.join(' - ')
+    @used_days << id
+
+    id
   end
 end

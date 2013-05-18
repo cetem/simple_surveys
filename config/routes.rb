@@ -1,5 +1,6 @@
 SimpleSurveys::Application.routes.draw do
-  get 'surveys/info', 'surveys#info', as: 'surveys_info'
+  match 'surveys/info' => 'surveys#info', as: 'surveys_info', via: :get
+
   resources :surveys, only: [:index, :show, :new, :create]
 
   devise_for :users

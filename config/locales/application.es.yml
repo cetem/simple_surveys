@@ -28,7 +28,7 @@
         phone: 'Teléfono/Celular'
         email: 'Email'
         institution: 'Institución'
-        status_in_institution: 'Estado en la institución (docente/estudiante/etc)'
+        status_in_institution: 'Estado en la institución (Docente/Estudiante/Personal Administrativo/etc)'
       travel_line:
         travel_from: 'Desde'
         travel_to: 'Hasta =>'
@@ -90,10 +90,11 @@
       new: 'Nueva encuesta'
       personal_info: 'Información personal del encuestado'
       hi!: 'Hola!'
-      travel_info: 'Información de viaje en MetroTrenvía'
+      travel_info: 'Información de viaje en MetroTranvía'
       add_travel_line: 'Agregar Otro Viaje'
       wait_time: 'Hora en la que te lo esperas tomar &nbsp; &nbsp; &nbsp; '
       save: 'Guardar Encuesta'
+      worked_days: 'Lunes a Viernes'
     users:
       index_title: 'Listado de usuarios'
       show_title: 'Detalle de usuario'

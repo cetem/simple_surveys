@@ -6,8 +6,10 @@ class SurveyTest < ActiveSupport::TestCase
   end
 
   test 'create' do
-    assert_difference ['Survey.count', 'Version.count'] do
-      assert Survey.create(Fabricate.attributes_for(:survey))
+    assert_difference 'Survey.count' do
+      assert_difference 'Version.count', 2 do
+        assert Survey.create(Fabricate.attributes_for(:survey))
+      end 
     end 
   end
     

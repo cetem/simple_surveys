@@ -6,4 +6,6 @@ Fabricator(:survey) do
   email                 { Faker::Internet.email }
   institution           { Faker::Lorem.word }
   status_in_institution { Faker::Lorem.word }
+  
+  travel_lines_attributes {[Fabricate.attributes_for(:travel_line, survey_id: nil)] }
 end

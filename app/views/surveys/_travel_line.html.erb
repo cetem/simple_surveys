@@ -18,17 +18,7 @@
       <%= select_rise_time_with_interval(f) %>
     </div>
     <div class='span5'>
-      <% if f.object.errors[:travel_days].any? %>
-        <% travel_days_class = 'text-error' %>
-        <span class='text-error'><%= t('errors.messages.blank') %></span> <br />
-      <% end %>
-      <%= f.label :travel_days, class: travel_days_class %>
-      <%= checkboxes_for_travel_days_in_survey(f)  %>
-    </div>
-    <div class="span1">
-      <%= link_to_remove_nested_item(f) %>
+      <%= f.input :travel_days, as: :hidden, input_html: { value: day } %>
     </div>
   </div>
 </fieldset>
-
-<div class='page-header'></div>

@@ -28,7 +28,6 @@ end
 
 group :test do
   gem 'turn', require: false
-  gem 'minitest', require: false
   gem 'selenium-webdriver', require: false
   gem 'capybara', require: false
   gem 'database_cleaner'

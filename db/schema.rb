@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425020951) do
+ActiveRecord::Schema.define(:version => 20130517195758) do
 
   create_table "surveys", :force => true do |t|
     t.string   "firstname"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20130425020951) do
     t.integer  "travel_from",              :null => false
     t.integer  "travel_to",                :null => false
     t.string   "rise_time",   :limit => 5, :null => false
-    t.string   "travel_days", :limit => 9, :null => false
+    t.string   "travel_days",              :null => false
     t.integer  "survey_id",                :null => false
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false

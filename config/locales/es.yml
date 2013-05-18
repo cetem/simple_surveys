@@ -6,21 +6,21 @@
       long: "%d de %B de %Y"
 
     day_names:
-      - domingo
       - lunes
       - martes
       - miércoles
       - jueves
       - viernes
       - sábado
+      - domingo
     abbr_day_names:
-      - dom
       - lun
       - mar
       - mié
       - jue
       - vie
       - sáb
+      - dom
 
     month_names:
       - ~
