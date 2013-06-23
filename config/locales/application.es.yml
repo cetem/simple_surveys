@@ -24,7 +24,7 @@
       survey:
         firstname: 'Nombre'
         lastname: 'Apellido'
-        identification: 'DNI'
+        identification: 'Legajo'
         phone: 'Teléfono/Celular'
         email: 'Email'
         institution: 'Institución'
@@ -90,7 +90,8 @@
       new: 'Nueva encuesta'
       personal_info: 'Información personal del encuestado'
       hi!: 'Hola!'
-      travel_info: 'Información de viaje en MetroTranvía'
+      travel_info: 'Información de viaje en MetroTranvía.'
+      tabs_explain: 'Si viaja de lunes a viernes en el mismo horario complete la pestaña "Lunes a Viernes" y si necesita, complete la/s pesataña/s Sábado y/o Domingo.<br /> Caso contrario complete las pestañas de los días en que viaja.'
       add_travel_line: 'Agregar Otro Viaje'
       wait_time: 'Hora en la que te lo esperas tomar &nbsp; &nbsp; &nbsp; '
       save: 'Guardar Encuesta'
