@@ -12,31 +12,49 @@
       <h2 class="text-center"><%= t('view.surveys.personal_info') %></h2>
     </div>
 
-    <div class='row-fluid'>
-      <div class='span5'>
-        <%= f.input :firstname, input_html: { class: 'span12' } %>
+    <div id="personal-info">
+      <div class='row-fluid'>
+        <div class='span5'>
+          <%= f.input :firstname, input_html: { class: 'span12' } %>
+        </div>
+        <div class='span5'>
+          <%= f.input :lastname, input_html: { class: 'span12' } %>
+        </div>
       </div>
-      <div class='span5'>
-        <%= f.input :lastname, input_html: { class: 'span12' } %>
+      <div class='row-fluid'>
+        <div class='span5'>
+          <%= f.input :phone, input_html: { class: 'span12' } %>
+        </div>
+        <div class='span5'>
+          <%= f.input :email, input_html: { class: 'span12' } %>
+        </div>
       </div>
-    </div>
-    <div class='row-fluid'>
-      <div class='span5'>
-        <%= f.input :phone, input_html: { class: 'span12' } %>
-      </div>
-      <div class='span5'>
-        <%= f.input :email, input_html: { class: 'span12' } %>
-      </div>
-    </div>
-    <div class='row-fluid'>
-      <div class='span3'>
-        <%= f.input :institution %>
-      </div>
-      <div class='span2'>
-        <%= f.input :identification %>
-      </div>
-      <div class='span6'>
-        <%= f.input :status_in_institution %>
+      <div class='row-fluid'>
+        <div class='span3'>
+          <%= institutions_select_for_survey(f) %>
+        </div>
+        <div class="span2">
+          <div class="hide" data-another-institution>
+            <%= f.label :another_institution, 
+              t('view.surveys.another_institution') %>
+            <%= f.input :another_institution, label: false,
+              input_html: { class: 'span11', placeholder: 'Inst.' } %>
+          </div>
+        </div>
+        <div class='span2'>
+          <%= f.input :identification, input_html: { class: 'span11' } %>
+        </div>
+        <div class='span4'>
+        <%= f.label :status_in_institution do %>
+          <%= content_tag(
+            :abbr, "? #{Survey.human_attribute_name(:status_in_institution)}", 
+            title: t('view.surveys.status_institution_abbr')
+          ) %>
+        <% end %>
+        <%= f.input :status_in_institution, label: false, input_html: {
+          class: 'span9'
+        } %>
+        </div>
       </div>
     </div>
 

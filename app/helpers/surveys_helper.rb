@@ -43,4 +43,11 @@ module SurveysHelper
 
     id
   end
+
+  def institutions_select_for_survey(form)
+    collection = t('view.surveys.institutions_list').invert.map(&:to_a)
+
+    form.input :institution, collection: collection, include_blank: true,
+      required: true, input_html: { class: 'span11' }
+  end
 end

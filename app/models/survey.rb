@@ -22,7 +22,10 @@ class Survey < ActiveRecord::Base
   }.with_indifferent_access.freeze
 
   attr_accessible :firstname, :lastname, :identification, :phone, :institution,
-    :status_in_institution, :email, :travel_lines_attributes
+    :status_in_institution, :email, :travel_lines_attributes,
+    :another_institution
+
+  attr_accessor :another_institution
 
   has_many :travel_lines, inverse_of: :survey
 
@@ -30,6 +33,9 @@ class Survey < ActiveRecord::Base
   validates :identification, uniqueness: { scope: :lastname }
   validate :must_have_one_item
   validate :must_have_day_and_time_if_select_a_travel
+  validate :must_have_institution
+
+  before_create :assign_another_institution
 
   accepts_nested_attributes_for :travel_lines, allow_destroy: true,
     reject_if: ->(attrs) { attrs['travel_to'].blank? && attrs['travel_from'].blank? }
@@ -50,6 +56,24 @@ class Survey < ActiveRecord::Base
       if tl.travel_from && tl.travel_to
         tl.errors.add :rise_time, :blank if tl.rise_time.blank?
       end
+    end
+  end
+
+  def assign_another_institution
+    inst = self.institution
+
+    if inst == 'other'
+      self.institution = self.another_institution
+    else
+      self.institution = I18n.t("view.surveys.institutions_list.#{inst}")
+    end
+  end
+
+  def must_have_institution
+    if self.institution.blank? || 
+      (self.institution == 'other' && self.another_institution.blank?)
+
+      self.errors.add :institution, :blank
     end
   end
 end
