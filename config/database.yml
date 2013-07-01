@@ -47,7 +47,7 @@ test:
   password: <%= ENV['TRAVIS'] ? '' : 'simple_surveys' %>
 
 production:
-  adapter: postgresql
+  adapter: mysql2
   encoding: unicode
   database: simple_surveys_production
   pool: 5
