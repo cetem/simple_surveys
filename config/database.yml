@@ -53,3 +53,4 @@ production:
   pool: 5
   username: simple_surveys
   password: simple_surveys
+  host: localhost

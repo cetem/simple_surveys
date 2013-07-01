@@ -26,6 +26,10 @@ group :development do
   gem 'thin'
 end
 
+group :production do
+  gem 'mysql2'
+end
+
 group :test do
   gem 'turn', require: false
   gem 'selenium-webdriver', require: false
