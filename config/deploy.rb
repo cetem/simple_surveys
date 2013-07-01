@@ -10,7 +10,7 @@ set :use_sudo, false
 set :port, 26
 
 set :scm, :git
-set :branch, 'ubuntu-server'
+set :branch, 'master'
 
 role :web, '192.168.0.8'
 role :app, '192.168.0.8'
